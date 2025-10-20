@@ -75,6 +75,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         .navbar {
@@ -84,16 +85,43 @@
             padding: 20px 0;
         }
 
+        /* UPDATED Logo with INM in Circle */
         .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-circle {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--dark-color);
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--primary-color);
         }
 
+        /* Menu Bar Styles */
         .nav-links {
             display: flex;
             gap: 40px;
@@ -103,6 +131,17 @@
             font-weight: 600;
             position: relative;
             padding: 5px 0;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
         }
 
         .nav-links a::after {
@@ -116,8 +155,84 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--dark-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
         }
 
         /* Modern Hero Section */
@@ -190,7 +305,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: center;
+            align-items: start;
         }
 
         .about-text h3 {
@@ -225,6 +340,130 @@
         .stat-label {
             color: var(--text-light);
             font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Education & Bio Section */
+        .education-bio-section {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .education-section, .bio-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-color);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .education-year {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .education-institution {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .education-certificate {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .hobbies-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .hobbies-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .hobbies-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .bio-item {
+            margin-bottom: 15px;
+        }
+
+        .bio-label {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .bio-value {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Enhanced Bio Section Styles */
+        .bio-summary {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            line-height: 1.6;
+        }
+
+        .competencies {
+            margin-top: 25px;
+        }
+
+        .competency-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .competency-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
@@ -330,6 +569,88 @@
             display: block;
         }
 
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tech span {
+            background: var(--light-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--secondary-color);
+        }
+
         /* Contact Section */
         .contact-content {
             display: flex;
@@ -410,33 +731,6 @@
             transform: translateY(-3px);
         }
 
-        .contact-form {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
         /* Footer */
         footer {
             background: var(--dark-color);
@@ -445,18 +739,52 @@
             padding: 50px 0;
         }
 
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(37, 99, 235, 0.2);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
             .hero-content h1 {
                 font-size: 2.5rem;
             }
 
             .about-content,
             .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .education-bio-section {
                 grid-template-columns: 1fr;
             }
 
@@ -496,21 +824,47 @@
             .social-links {
                 justify-content: flex-start;
             }
+
+            .bio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .competency-tags {
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#home" class="logo">Ian<span>.</span></a>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
+                <a href="#home" class="logo">
+                    <div class="logo-circle">INM</div>
+                    <div class="logo-text">Ndiga<span>Ian</span></div>
+                </a>
+                <button class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-links" id="nav-links">
+                    <a href="#home" class="active">Home</a>
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
                     <a href="#experience">Experience</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -551,6 +905,81 @@
                         <div class="stat-item">
                             <span class="stat-number">2+</span>
                             <span class="stat-label">Projects Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Education & Bio Section -->
+                    <div class="education-bio-section">
+                        <!-- Education Section -->
+                        <div class="education-section">
+                            <h3 class="section-subtitle">Education Background</h3>
+                            <div class="education-item">
+                                <div class="education-year">2025-Present</div>
+                                <div class="education-institution">PLP Academy</div>
+                                <div class="education-certificate">AI Software Engineer</div>
+                            </div>
+                            <div class="education-item">
+                                <div class="education-year">2019-2022</div>
+                                <div class="education-institution">The Nairobi National Polytechnic</div>
+                                <div class="education-certificate">Diploma in Information Communication Technology</div>
+                            </div>  
+                        </div>
+
+                        <!-- Enhanced Bio Section -->
+                        <div class="bio-section">
+                            <h3 class="section-subtitle">Personal Profile</h3>
+                            
+                            <!-- Professional Summary -->
+                            <div class="bio-summary">
+                                <p>Passionate ICT professional and AI Software Engineer specializing in creating innovative digital solutions. Committed to leveraging cutting-edge technologies to solve complex problems and drive business growth.</p>
+                            </div>
+
+                            <div class="bio-grid">
+                                <!-- Personal Details -->
+                                
+                                <div class="bio-item">
+                                    <div class="bio-label">NATIONALITY</div>
+                                    <div class="bio-value">KENYAN</div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-label">LOCATION</div>
+                                    <div class="bio-value">NAIROBI, KENYA</div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-label">LANGUAGES</div>
+                                    <div class="bio-value">ENGLISH, SWAHILI</div>
+                                </div>
+                                
+                                <!-- Professional Details -->
+                                <div class="bio-item">
+                                    <div class="bio-label">CURRENT ROLE</div>
+                                    <div class="bio-value">AI SOFTWARE ENGINEER STUDENT</div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-label">SPECIALIZATIONS</div>
+                                    <div class="bio-value">FULL-STACK DEVELOPMENT, AI SOLUTIONS</div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-label">YEARS EXPERIENCE</div>
+                                    <div class="bio-value">1+ YEARS IN ICT</div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-label">AVAILABILITY</div>
+                                    <div class="bio-value">OPEN TO OPPORTUNITIES</div>
+                                </div>
+                            </div>
+
+                            <!-- Core Competencies -->
+                            <div class="competencies">
+                                <h4 style="margin: 25px 0 15px 0; color: var(--primary-color);">Core Competencies</h4>
+                                <div class="competency-tags">
+                                    <span class="competency-tag">Digital Transformation</span>
+                                    <span class="competency-tag">Software Development</span>
+                                    <span class="competency-tag">IT Infrastructure</span>
+                                    <span class="competency-tag">Problem Solving</span>
+                                    <span class="competency-tag">Project Implementation</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -602,6 +1031,35 @@
                         <span class="skill-tag">Problem Solving</span>
                         <span class="skill-tag">Team Leadership</span>
                         <span class="skill-tag">Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Jijue Web Hospital</h3>
+                        <p>A comprehensive hospital management system that streamlines patient registration, appointment scheduling, medical records management, and billing processes. The platform enhances healthcare delivery through digital transformation.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>JavaScript</span>
+                            <span>MongoDB</span>
+                            <span>Flask</span>
+                            <span>HTML/CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="disabled-link" style="color: #ccc; cursor: not-allowed;"><i class="fab fa-github"></i> Code (Private)</a>
+                            <a href="https://github.com/ianndiga/week-8-web-app-2025.git" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -678,7 +1136,6 @@
                         <a href="https://wa.me/254747801812" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -691,6 +1148,31 @@
     </footer>
 
 <script>
+    // Loading animation
+    window.addEventListener('load', function() {
+        const loading = document.getElementById('loading');
+        setTimeout(() => {
+            loading.classList.add('hidden');
+        }, 1000);
+    });
+
+    // Mobile menu toggle functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -715,6 +1197,28 @@
             header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.boxShadow = 'none';
         }
+    });
+
+    // Active navigation highlighting
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
     });
 </script>
 </body>
