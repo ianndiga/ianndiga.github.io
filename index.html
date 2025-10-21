@@ -467,6 +467,26 @@
             font-weight: 600;
         }
 
+        /* Self-Taught Journey Section */
+        .self-taught-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .self-taught-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .self-taught-description {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
         /* UPDATED Image Container Styles */
         .image-container {
             width: 100%;
@@ -649,6 +669,19 @@
 
         .project-links a:hover {
             color: var(--secondary-color);
+        }
+
+        /* Project Status Badge */
+        .project-status {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
         }
 
         /* Contact Section */
@@ -901,9 +934,13 @@
                             <span class="stat-number">1+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
+                         <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
                         <div class="stat-item">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Projects Completed</span>
+                            <span class="stat-number">1+</span>
+                            <span class="stat-label">Projects Underway</span>
                         </div>
                     </div>
 
@@ -930,10 +967,20 @@
                             
                             <!-- Professional Summary -->
                             <div class="bio-summary">
-                                <p>Passionate ICT professional and AI Software Engineer specializing in creating innovative digital solutions. Committed to leveraging cutting-edge technologies to solve complex problems and drive business growth.</p>
+                                <p>Passionate ICT professional Fullstack developer and AI Software Engineer specializing in creating innovative digital solutions. Committed to leveraging cutting-edge technologies to solve complex problems and drive business growth.</p>
                             </div>
 
                             <div class="bio-grid">
+
+                                <!-- Self-Taught Journey Section -->
+                            <div class="self-taught-section">
+                                <h4>Self-Taught Journey</h4>
+                                <div class="self-taught-description">
+                                    <p>Through dedicated self-study and exploration of various learning resources, I've developed comprehensive full-stack development skills. My journey has involved mastering front-end technologies like HTML, CSS, and JavaScript, progressing to modern frameworks like React, and expanding to back-end development with Node.js, Express, and database management with MongoDB and MySQL.</p>
+                                    <p>This self-directed learning approach has equipped me with strong problem-solving abilities and the capacity to quickly adapt to new technologies and frameworks.</p>
+                                </div>
+                            </div>
+
                                 <!-- Personal Details -->
                                 
                                 <div class="bio-item">
@@ -997,16 +1044,38 @@
             <h2 class="section-title">Technical Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <h3><i class="fas fa-code"></i> Languages</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">C/C++</span>
                         <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Frameworks & Libraries</h3>
+                    <div class="skill-tags">
                         <span class="skill-tag">React</span>
-                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Databases</h3>
+                    <div class="skill-tags">
                         <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MYSQL</span>
+                    </div>
+                </div>
+                 <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Git</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -1015,17 +1084,6 @@
                         <span class="skill-tag">Network Configuration</span>
                         <span class="skill-tag">System Administration</span>
                         <span class="skill-tag">Hardware Troubleshooting</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Software</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AutoCAD</span>
-                        <span class="skill-tag">Microsoft Office</span>
-                        <span class="skill-tag">Windows/Linux</span>
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Git</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -1046,13 +1104,29 @@
     <div class="container">
         <h2 class="section-title">My Projects</h2>
         <div class="projects-grid">
+             <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Portfolio Website</h3>
+                    <div class="project-status">
+                        <i class="fas fa-code-branch"></i> <strong>Development Status:</strong> Completed & Deployed
+                    </div>
+                    <p>A responsive portfolio website showcasing my skills, projects, and professional journey. Built with modern web technologies and optimized for performance and user experience across all devices.</p>
+                    <div class="project-links">
+                        <a href="#" class="disabled-link" style="color: #ccc; cursor: not-allowed;"><i class="fab fa-github"></i> Code (Private)</a>
+                        <a href="#" class="disabled-link" style="color: #ccc; cursor: not-allowed;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
             <div class="project-card">
                 <div class="project-image">
                     <i class="fas fa-hospital"></i>
                 </div>
                 <div class="project-content">
                     <h3>Jijue Web Hospital</h3>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 10px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--primary-color); font-size: 0.9rem;">
+                    <div class="project-status">
                         <i class="fas fa-code-branch"></i> <strong>Development Status:</strong> Active Development - UI/UX Preview Available
                     </div>
                     <p>A comprehensive hospital management system that streamlines patient registration, appointment scheduling, medical records management, and billing processes. The platform enhances healthcare delivery through digital transformation.</p>
