@@ -474,6 +474,7 @@
             background: var(--light-color);
             border-radius: 10px;
             border-left: 4px solid var(--accent-color);
+            grid-column: 1 / -1;
         }
 
         .self-taught-section h4 {
@@ -806,6 +807,18 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -879,6 +892,9 @@
     <div class="loading" id="loading">
         <div class="spinner"></div>
     </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- Header -->
     <header>
@@ -971,18 +987,7 @@
                             </div>
 
                             <div class="bio-grid">
-
-                                <!-- Self-Taught Journey Section -->
-                            <div class="self-taught-section">
-                                <h4>Self-Taught Journey</h4>
-                                <div class="self-taught-description">
-                                    <p>Through dedicated self-study and exploration of various learning resources, I've developed comprehensive full-stack development skills. My journey has involved mastering front-end technologies like HTML, CSS, and JavaScript, progressing to modern frameworks like React, and expanding to back-end development with Node.js, Express, and database management with MongoDB and MySQL.</p>
-                                    <p>This self-directed learning approach has equipped me with strong problem-solving abilities and the capacity to quickly adapt to new technologies and frameworks.</p>
-                                </div>
-                            </div>
-
                                 <!-- Personal Details -->
-                                
                                 <div class="bio-item">
                                     <div class="bio-label">NATIONALITY</div>
                                     <div class="bio-value">KENYAN</div>
@@ -1012,6 +1017,15 @@
                                 <div class="bio-item">
                                     <div class="bio-label">AVAILABILITY</div>
                                     <div class="bio-value">OPEN TO OPPORTUNITIES</div>
+                                </div>
+                            </div>
+
+                            <!-- Self-Taught Journey Section -->
+                            <div class="self-taught-section">
+                                <h4>Self-Taught Journey</h4>
+                                <div class="self-taught-description">
+                                    <p>Through dedicated self-study and exploration of various learning resources, I've developed comprehensive full-stack development skills. My journey has involved mastering front-end technologies like HTML, CSS, and JavaScript, progressing to modern frameworks like React, and expanding to back-end development with Node.js, Express, and database management with MongoDB and MySQL.</p>
+                                    <p>This self-directed learning approach has equipped me with strong problem-solving abilities and the capacity to quickly adapt to new technologies and frameworks.</p>
                                 </div>
                             </div>
 
@@ -1116,7 +1130,7 @@
                     <p>A responsive portfolio website showcasing my skills, projects, and professional journey. Built with modern web technologies and optimized for performance and user experience across all devices.</p>
                     <div class="project-links">
                         <a href="#" class="disabled-link" style="color: #ccc; cursor: not-allowed;"><i class="fab fa-github"></i> Code (Private)</a>
-                        <a href="#" class="disabled-link" style="color: #ccc; cursor: not-allowed;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://ianndiga.github.io/" target="_blank">><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
@@ -1293,6 +1307,16 @@
                 link.classList.add('active');
             }
         });
+    });
+
+    // Scroll progress indicator
+    window.addEventListener('scroll', function() {
+        const winHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset;
+        const scrollPercent = (scrollTop) / (docHeight - winHeight) * 100;
+        const progressBar = document.getElementById('scroll-progress');
+        progressBar.style.width = scrollPercent + '%';
     });
 </script>
 </body>
