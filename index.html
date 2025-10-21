@@ -447,6 +447,21 @@
             line-height: 1.6;
         }
 
+       
+        .bio-section {
+          display: flex;
+          flex-direction: column;
+          gap: 25px; 
+       }
+
+       .bio-grid {
+          margin-top: 20px; 
+       }
+
+       .competencies {
+          margin-top: 30px; 
+        }
+
         .competencies {
             margin-top: 25px;
         }
@@ -977,70 +992,72 @@
                             </div>  
                         </div>
 
-                        <!-- Enhanced Bio Section -->
-                        <div class="bio-section">
-                            <h3 class="section-subtitle">Personal Profile</h3>
-                            
-                            <!-- Professional Summary -->
-                            <div class="bio-summary">
-                                <p>Passionate ICT professional Fullstack developer and AI Software Engineer specializing in creating innovative digital solutions. Committed to leveraging cutting-edge technologies to solve complex problems and drive business growth.</p>
-                            </div>
+                       <!-- Enhanced Bio Section -->
+<div class="bio-section">
+    <h3 class="section-subtitle">Personal Profile</h3>
+    
+    <!-- Professional Summary -->
+    <div class="bio-summary">
+        <p>Passionate ICT professional Fullstack developer and AI Software Engineer specializing in creating innovative digital solutions. Committed to leveraging cutting-edge technologies to solve complex problems and drive business growth.</p>
+    </div>
+    
+    <!-- Self-Taught Journey Section -->
+    <div class="self-taught-section">
+        <h4>Self-Taught Journey</h4>
+        <div class="self-taught-description">
+            <p>Through dedicated self-study and exploration of various learning resources, I've developed comprehensive full-stack development skills. My journey has involved mastering front-end technologies like HTML, CSS, and JavaScript, progressing to modern frameworks like React, and expanding to back-end development with Node.js, Express, and database management with MongoDB and MySQL.</p>
+            <p>This self-directed learning approach has equipped me with strong problem-solving abilities and the capacity to quickly adapt to new technologies and frameworks.</p>
+        </div>
+    </div>
+    
+    <!-- ADD THIS MARGIN TOP TO PUSH DOWN THE PERSONAL DETAILS -->
+    <div class="bio-grid" style="margin-top: 30px;">
+        
+        <!-- Personal Details -->
+        <div class="bio-item">
+            <div class="bio-label">NATIONALITY</div>
+            <div class="bio-value">KENYAN</div>
+        </div>
+        <div class="bio-item">
+            <div class="bio-label">LOCATION</div>
+            <div class="bio-value">NAIROBI, KENYA</div>
+        </div>
+        <div class="bio-item">
+            <div class="bio-label">LANGUAGES</div>
+            <div class="bio-value">ENGLISH, SWAHILI</div>
+        </div>
+        
+        <!-- Professional Details -->
+        <div class="bio-item">
+            <div class="bio-label">CURRENT ROLE</div>
+            <div class="bio-value">AI SOFTWARE ENGINEER STUDENT</div>
+        </div>
+        <div class="bio-item">
+            <div class="bio-label">SPECIALIZATIONS</div>
+            <div class="bio-value">FULL-STACK DEVELOPMENT, AI SOLUTIONS</div>
+        </div>
+        <div class="bio-item">
+            <div class="bio-label">YEARS EXPERIENCE</div>
+            <div class="bio-value">1+ YEARS IN ICT</div>
+        </div>
+        <div class="bio-item">
+            <div class="bio-label">AVAILABILITY</div>
+            <div class="bio-value">OPEN TO OPPORTUNITIES</div>
+        </div>
+    </div>
 
-                            <div class="bio-grid">
-                                <!-- Personal Details -->
-                                <div class="bio-item">
-                                    <div class="bio-label">NATIONALITY</div>
-                                    <div class="bio-value">KENYAN</div>
-                                </div>
-                                <div class="bio-item">
-                                    <div class="bio-label">LOCATION</div>
-                                    <div class="bio-value">NAIROBI, KENYA</div>
-                                </div>
-                                <div class="bio-item">
-                                    <div class="bio-label">LANGUAGES</div>
-                                    <div class="bio-value">ENGLISH, SWAHILI</div>
-                                </div>
-                                
-                                <!-- Professional Details -->
-                                <div class="bio-item">
-                                    <div class="bio-label">CURRENT ROLE</div>
-                                    <div class="bio-value">AI SOFTWARE ENGINEER STUDENT</div>
-                                </div>
-                                <div class="bio-item">
-                                    <div class="bio-label">SPECIALIZATIONS</div>
-                                    <div class="bio-value">FULL-STACK DEVELOPMENT, AI SOLUTIONS</div>
-                                </div>
-                                <div class="bio-item">
-                                    <div class="bio-label">YEARS EXPERIENCE</div>
-                                    <div class="bio-value">1+ YEARS IN ICT</div>
-                                </div>
-                                <div class="bio-item">
-                                    <div class="bio-label">AVAILABILITY</div>
-                                    <div class="bio-value">OPEN TO OPPORTUNITIES</div>
-                                </div>
-                            </div>
-
-                            <!-- Self-Taught Journey Section -->
-                            <div class="self-taught-section">
-                                <h4>Self-Taught Journey</h4>
-                                <div class="self-taught-description">
-                                    <p>Through dedicated self-study and exploration of various learning resources, I've developed comprehensive full-stack development skills. My journey has involved mastering front-end technologies like HTML, CSS, and JavaScript, progressing to modern frameworks like React, and expanding to back-end development with Node.js, Express, and database management with MongoDB and MySQL.</p>
-                                    <p>This self-directed learning approach has equipped me with strong problem-solving abilities and the capacity to quickly adapt to new technologies and frameworks.</p>
-                                </div>
-                            </div>
-
-                            <!-- Core Competencies -->
-                            <div class="competencies">
-                                <h4 style="margin: 25px 0 15px 0; color: var(--primary-color);">Core Competencies</h4>
-                                <div class="competency-tags">
-                                    <span class="competency-tag">Digital Transformation</span>
-                                    <span class="competency-tag">Software Development</span>
-                                    <span class="competency-tag">IT Infrastructure</span>
-                                    <span class="competency-tag">Problem Solving</span>
-                                    <span class="competency-tag">Project Implementation</span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Core Competencies -->
+    <div class="competencies">
+        <h4 style="margin: 25px 0 15px 0; color: var(--primary-color);">Core Competencies</h4>
+        <div class="competency-tags">
+            <span class="competency-tag">Digital Transformation</span>
+            <span class="competency-tag">Software Development</span>
+            <span class="competency-tag">IT Infrastructure</span>
+            <span class="competency-tag">Problem Solving</span>
+            <span class="competency-tag">Project Implementation</span>
+        </div>
+    </div>
+</div>
                     </div>
                 </div>
                 <div class="about-image">
